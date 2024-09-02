@@ -1,0 +1,38 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment directories
+env/
+venv/
+ENV/
+manim-env/
+.*env/
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+
+# Test and coverage reports
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Manim specific
+# Manim 默认生成的媒体文件（如视频和图像），你可以根据需要选择忽略或包含
+media/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDEs and editors
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# System files
+.DS_Store
