@@ -23,6 +23,16 @@ pip install manim
 ```
 
 ## render video
+test only
 ```bash
-manim -pql example.py HelloWorld
+manim -pql playground/helloworld.py HelloWorld
+```
+my build.sh
+```bash
+# quick preview
+./build.sh quick playground/helloworld.py
+# std preview
+./build.sh std playground/helloworld.py
+# release: to release/playground/helloworld-1634567890.mov
+./build.sh release playground/helloworld.py
 ```
