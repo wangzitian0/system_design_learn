@@ -51,15 +51,18 @@ else
     manim -p -r ${WIDTH},${HEIGHT} --frame_rate $FRAME_RATE $SCRIPT_PATH -o "$OUTPUT_FILE"
 fi
 
-# 定义正确的搜索路径
-SEARCH_DIR="media/videos/$SCRIPT_NAME/${HEIGHT}p$FRAME_RATE"
+# 只有在 release 模式下才移动文件
+if [ "$MODE" == "release" ]; then
+    # 定义正确的搜索路径
+    SEARCH_DIR="media/videos/$SCRIPT_NAME/${HEIGHT}p$FRAME_RATE"
 
-# 查找生成的文件并移动到最终位置
-if [ -f "$SEARCH_DIR/$OUTPUT_FILE" ]; then
-    mv "$SEARCH_DIR/$OUTPUT_FILE" "$FINAL_OUTPUT_PATH"
-else
-    echo "错误：找不到生成的文件 $OUTPUT_FILE"
-    exit 1
+    # 查找生成的文件并移动到最终位置
+    if [ -f "$SEARCH_DIR/$OUTPUT_FILE" ]; then
+        mv "$SEARCH_DIR/$OUTPUT_FILE" "$FINAL_OUTPUT_PATH"
+    else
+        echo "错误：找不到生成的文件 $OUTPUT_FILE"
+        exit 1
+    fi
 fi
 
 echo "$MODE 渲染完成: $FINAL_OUTPUT_PATH"
